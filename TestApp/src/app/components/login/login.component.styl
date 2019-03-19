@@ -1,0 +1,33 @@
+.form {
+  max-width: 200px
+  margin: auto
+  &-username,
+  &-password {
+    display: block
+    margin-bottom: 0.5rem
+  }
+  &__row {
+    padding: 1rem 0
+    input, select {
+      border: none
+      border-bottom: 2px solid #8b8b8b
+      height: 30px
+      min-width: 200px
+      padding: 5px
+    }
+    label {
+      display: block
+      font-size: 14px
+      margin-bottom: 5px
+    }
+    .form-submit {
+      cursor: pointer
+      font-size: 14px
+      padding: 5px 20px
+    }
+  }
+}
+.form-errors {
+  color: red
+  font-size: 12px
+}

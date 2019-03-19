@@ -1,0 +1,16 @@
+<div class="notices">
+  <div class="notices-add">
+    <app-add-notice
+      (onAddNotice)="addNoticesList($event)">
+    </app-add-notice>
+  </div>
+  <div class="notices-wrapper">
+    <app-notices-viewport
+      *ngFor='let item of notesHtml; let idx = index;'
+      [noticesItem]="item"
+      [idx]="idx"
+      (editNoticeEmitter)="editNoticeList($event)"
+      (deleteNoticeEmitter)="deleteNoticesList($event)">
+    </app-notices-viewport>
+  </div>
+</div>

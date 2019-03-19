@@ -1,0 +1,35 @@
+<div class="notices-viewport"
+     [ngClass]="noteEditStatus ? 'notices-viewport_editted' : 'notices-viewport' ">
+  <span class="notices__edit" (click)="toggleEdit()">
+    <svg aria-hidden="true" data-prefix="fas" data-icon="pen" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-pen fa-w-16 fa-2x"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z" class=""></path></svg>
+  </span>
+  <span class="notices__remove" (click)="deleteEvent()">
+    <svg aria-hidden="true" data-prefix="fas" data-icon="ban" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-ban fa-w-16 fa-2x"><path fill="currentColor" d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z" class=""></path></svg>
+  </span>
+  <div class="notices-current">
+    <div class="notices__title">{{noticesItem.title}}</div>
+    <!--<input type="text" value="{{noticesItem.title}}">-->
+
+    <div class="notices__description">{{noticesItem.description}}</div>
+    <!--<input type="text" value="{{noticesItem.description}}">-->
+  </div>
+  <div class="notices-edit">
+    <form class="notices-edit-form"
+          (ngSubmit)="onSubmit(noticesEditForm)"
+          #noticesEditForm = ngForm>
+      <label>
+        <span class="notices__title_text">Title</span>
+        <input type="text" class="notices__title_input" name="title"
+               [ngModel]="noticesItem.title">
+      </label>
+      <label>
+        <span class="notices__description_text">Description</span>
+        <input type="text" class="notices__description_input" name="description"
+               [ngModel]="noticesItem.description">
+      </label>
+      <input type="hidden" name="_id" [ngModel]="noticesItem._id">
+
+      <input type="submit" class="notices-edit-submit">
+    </form>
+  </div>
+</div>

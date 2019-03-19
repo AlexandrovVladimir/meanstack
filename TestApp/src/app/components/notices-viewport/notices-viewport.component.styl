@@ -1,0 +1,130 @@
+.notices {
+  &__remove {
+    cursor: pointer
+    position: absolute
+    top: 1rem
+    right: 1rem
+    &:hover {
+      svg {
+        color: red
+      }
+    }
+    svg {
+      width: 10px
+      height: 10px
+      transition: all 0.3s ease-in-out
+      position: relative
+      z-index: 2
+    }
+  }
+  &__edit {
+    cursor: pointer
+    position: absolute
+    top: 1rem
+    right: 3rem
+    &:hover {
+      svg {
+        color: red
+      }
+    }
+    svg {
+      width: 10px
+      height: 10px
+      transition: all 0.3s ease-in-out
+      position: relative
+      z-index: 2
+    }
+  }
+  &__title {
+    font-size: 14px;
+    margin-bottom: 0.5rem
+    &_text, &_input {
+      display: block
+    }
+    &_text {
+      font-size: 14px;
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+    &_input {
+      border: none;
+      border-bottom: 2px solid #8b8b8b;
+      height: 30px;
+      margin-bottom: 0.5rem;
+      padding: 5px;
+      width: 100%
+    }
+  }
+  &__description {
+    font-size: 14px;
+    font-style: italic
+    &_text, &_input {
+      display: block
+    }
+    &_text {
+      font-size: 14px;
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+    &_input {
+      border: none;
+      border-bottom: 2px solid #8b8b8b;
+      height: 30px;
+      margin-bottom: 0.5rem;
+      padding: 5px;
+      width: 100%
+    }
+  }
+}
+.notices-current {
+  margin: 1rem 0
+  padding: 0.5rem
+  &:hover {
+    -webkit-border-radius: 2px
+    -moz-border-radius: 2px
+    border-radius: 2px
+    box-shadow: 0px 0px 5px 0px #5c5c5c;
+  }
+}
+.notices-edit {
+  padding: 1rem 0.5rem
+  &-submit {
+    border: none;
+    border-bottom: 2px solid #8b8b8b;
+    height: 30px;
+    margin-top: 1rem
+    width: 100%
+  }
+}
+.notices-viewport {
+  border-left: 2px solid #8b8b8b
+  position: relative
+  transition: all 0.2s ease-in-out
+  &:hover {
+    border-left: 2px solid transparent
+  }
+  .notices-edit {
+    display: none
+  }
+  &_editted {
+    .notices-edit {
+      display: block
+    }
+    .notices-current {
+      display: none
+    }
+    .notices__remove {
+      display: none
+    }
+    .notices__edit {
+      right: 0.5rem
+    }
+  }
+}
+.notices-status {
+  color: #00bbd3
+  font-size: 12px
+  position: absolute
+  left: 0.5rem
+  bottom: -0.5rem
+}

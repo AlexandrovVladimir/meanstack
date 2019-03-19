@@ -1,0 +1,15 @@
+<div class="notices-add">
+  <form class="notices-add-form"
+        (ngSubmit)="onSubmit(noticesAddForm)"
+        #noticesAddForm = ngForm>
+    <label class="notices-add__label">
+      <span class="notices-add__title">Title</span>
+      <input type="text" name="title" class="notices-add__input" ngModel>
+    </label>
+    <label class="notices-add__label">
+      <span class="notices-add__description">Description</span>
+      <textarea name="description" class="notices-add__textarea" ngModel></textarea>
+    </label>
+    <input type="submit" class="notices-add-submit" value="Add notice">
+  </form>
+</div>

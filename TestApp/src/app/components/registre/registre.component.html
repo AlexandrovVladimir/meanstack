@@ -1,0 +1,35 @@
+<div class="form registre">
+  <form class="registration-form"
+        [formGroup]="registreForm"
+        (ngSubmit)="onSubmit(ff2.form.valid && this.registreForm.value)"
+        #ff2 = "ngForm">
+    <div class="form__row">
+      <label>Username</label>
+      <input type="text" placeholder="username" formControlName="username">
+      <div class="form-errors" *ngIf="!!f.username.invalid">
+        Поле username введен не правильно
+      </div>
+    </div>
+    <div class="form__row">
+      <label>Password</label>
+      <input type="password" placeholder="password" formControlName="password">
+      <div class="form-errors" *ngIf="!!f.username.invalid">
+        Поле Password введен не правильно
+      </div>
+    </div>
+    <div class="form__row">
+      <label for="gender">Gender</label>
+      <input type="text" id="gender" placeholder="man/woman" formControlName="gender">
+    </div>
+    <div class="form__row">
+      <label class="remember-password" for="remember-password">
+        <input type="checkbox" class="remember-password--input" id="remember-password" value="remember-password">
+        <span class="remember-password--text">Remember me</span>
+      </label>
+    </div>
+    <div class="form__row">
+      <input type="submit" class="form-submit" value="Зарегистрировать">
+    </div>
+  </form>
+  <div class="registre-success" *ngIf="registreErrors">{{registreErrors}}</div>
+</div>

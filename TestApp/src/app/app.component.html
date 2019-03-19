@@ -1,0 +1,45 @@
+<header class="header">
+  <a routerLink="/" class="header__link">Home</a>
+</header>
+<div class="container">
+  <div class="container__text" *ngIf="!isLoggednIn()">
+    Залогинься, и этот текст пропадет,<br> а посты на главной появятся
+  </div>
+  <nav>
+    <ul class="list">
+      <li class="list__item" *ngIf="!isLoggednIn(); else successLogin">
+        <a routerLink="/login" class="list__link"
+           routerLinkActive="active">Login</a>
+      </li>
+      <ng-template #successLogin>
+        <li class="list__item">
+          <a routerLink="/login" class="list__link disabled"
+             *ngIf="isLoggednIn()"
+             routerLinkActive="active">Login</a>
+        </li>
+      </ng-template>
+      <li class="list__item" *ngIf="!isLoggednIn()">
+        <a routerLink="/registration" class="list__link"
+           routerLinkActive="active">Registration</a>
+      </li>
+      <li class="list__item disabled" *ngIf="isLoggednIn()">
+        <a routerLink="/registration" class="list__link disabled"
+           *ngIf="isLoggednIn()"
+           routerLinkActive="active">Registration</a>
+      </li>
+      <li class="list__item" *ngIf="isLoggednIn()">
+        <a href="#" class="list__link list__link_login" routerLinkActive="active">My account</a>
+      </li>
+      <li class="list__item" *ngIf="isLoggednIn()">
+        <a href="#" class="list__link list__link_login" (click)="logout()" routerLinkActive="active">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="dynamic-content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="users-notices" *ngIf="isLoggednIn()">
+    <app-notices></app-notices>
+  </div>
+</div>
+<footer class="footer"></footer>
